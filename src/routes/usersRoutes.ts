@@ -1,4 +1,5 @@
 import { baseRoutes } from './baseRoutes';
+import userController from '../controllers/userController';
 
 class userRoutes extends baseRoutes {
     public constructor() {
@@ -7,9 +8,7 @@ class userRoutes extends baseRoutes {
     }
 
     protected create() {
-        this.routes.get('/:id', (req, res) => {
-            res.send(req.params);
-        });
+        this.routes.get('/:id', userController.getUser);
     }
 }
 
