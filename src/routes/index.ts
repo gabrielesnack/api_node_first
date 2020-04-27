@@ -1,7 +1,18 @@
-import user from './user';
+import { Router } from 'express';
+import usersRoutes from './usersRoutes';
 
-const routes = [
-    user
-]
+class Routes {
+    public routes: Router;
 
-export default routes;
+    public constructor() {
+        this.routes = Router();
+        this.create();
+    }
+
+    private create() : void {
+        this.routes.use('/users', usersRoutes);
+    }
+
+}
+
+export default new Routes().routes
