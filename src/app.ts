@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import "reflect-metadata";
 
 import routes from './routes/';
-
 class App {
     public express: express.Application;
 
