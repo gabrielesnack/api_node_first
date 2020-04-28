@@ -35,7 +35,7 @@ export class User1588035494946 implements MigrationInterface {
                 },
                 {
                     name: "avatar_url",
-                    type: "varchar(1024)",
+                    type: "text",
                 },
                 {
                     name: "created_at",
