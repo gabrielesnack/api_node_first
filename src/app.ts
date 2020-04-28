@@ -24,7 +24,6 @@ class App {
     }
 
     private routes(): void {
-        // console.log(routes);
         this.express.use(routes);
     }
 

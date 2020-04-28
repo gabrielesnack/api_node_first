@@ -6,7 +6,9 @@
    "scripts": {
       "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
       "build": "yarn tsc && node dist/server.js",
-      "start": "ts-node src/index.ts"
+      "start": "ts-node src/index.ts",
+      "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+      "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
    },
    "dependencies": {
       "cors": "^2.8.5",
