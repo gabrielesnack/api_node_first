@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import "reflect-metadata";
 
-import routes from './routes/';
+import Routes from './Routes/';
 class App {
     public express: express.Application;
 
@@ -24,7 +24,7 @@ class App {
     }
 
     private routes(): void {
-        this.express.use(routes);
+        this.express.use(Routes);
     }
 
 }

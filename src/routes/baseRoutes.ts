@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-export abstract class baseRoutes {
+export abstract class BaseRoutes {
     
     public routes = Router();
 

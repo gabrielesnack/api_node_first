@@ -1,15 +1,16 @@
-import { baseRoutes } from './baseRoutes';
-import userController from '../controllers/userController';
+import { BaseRoutes } from './BaseRoutes';
+import UserController from '../controllers/userController';
 
-class userRoutes extends baseRoutes {
+class UserRoutes extends BaseRoutes {
     public constructor() {
         super();
         this.create();
     }
 
     protected create() {
-        this.routes.get('/:id', userController.getUser);
+        this.routes.get('/:id', UserController.getUser);
+        this.routes.post('/create', UserController.createUser);
     }
 }
 
-export default new userRoutes().routes;
+export default new UserRoutes().routes;

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import usersRoutes from './usersRoutes';
+import UsersRoutes from './UsersRoutes';
 
 class Routes {
     public routes: Router;
@@ -10,7 +10,7 @@ class Routes {
     }
 
     private create() : void {
-        this.routes.use('/users', usersRoutes);
+        this.routes.use('/users', UsersRoutes);
     }
 
 }
