@@ -1,7 +1,15 @@
 import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {IsEmail} from "class-validator";
 
 @Entity()
 export class User {
+    constructor (params?: { name: string, email: string, password: string }) {
+        if(params != null) {
+            this.name = params.name;
+            this.email = params.email;   
+            this.password = params.password
+        }
+    }
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -9,6 +17,7 @@ export class User {
     @Column("varchar")
     name: string;
 
+    @IsEmail()
     @Column("varchar")
     email: string;
 

@@ -34,10 +34,12 @@ export class User1588035494946 implements MigrationInterface {
                 {
                     name: "gender",
                     type: "tinyint",
+                    isNullable: true,
                 },
                 {
                     name: "avatar_url",
                     type: "text",
+                    isNullable: true,
                 },
                 {
                     name: "created_at",

@@ -1,27 +1,25 @@
-import create from './create';
+import { User } from '../../entity/User';
+import UserRepository from '../../repositories/user';
+import {validate} from "class-validator";
 
-class UserService implements BaseService {
+class UserService  {
     constructor() {
 
     }
     
-    find(params: any): void {
-        throw new Error("Method not implemented.");
-    }
-    get(id: number): void {
-        throw new Error("Method not implemented.");
-    }
-    create(data: any): void {
-        const createUser = new create;
-        createUser.exec();
-    }
-    update(id: number, data: any): void {
-        throw new Error("Method not implemented.");
-    }
-    patch(id: number, data: any): void {
-        throw new Error("Method not implemented.");
-    }
-    delete(id: number): void {
-        throw new Error("Method not implemented.");
+    public async createNewUser(data: any) {
+        const newUser = new User(data);
+        
+        const verifyUser = await validate(newUser);
+        if (verifyUser.length) {
+            let error = verifyUser.map(e => {
+                return { field: e.property, message: e.constraints}
+            })
+            throw {message: 'Dados Invalidos', data: error, status: 400};
+        }
+
+        return await UserRepository.create(newUser);
     }
 }
+
+export default new UserService;
