@@ -1,4 +1,5 @@
 import IUserRepository from '../../interfaces/repositories/UserRepositoryInterface';
+import CustomError from '../../exceptions/CustomError';
 import { User as UserModel } from '../../entity/User';
 import { Connection, createConnection, getRepository } from 'typeorm';
 
@@ -16,7 +17,7 @@ class UserRepository implements IUserRepository {
             connection.close();
             return user;
         } catch (error) {
-            throw { message: 'Erro no banco de dados', data: error, status: 400 }
+            throw new CustomError('Erro no banco de dados', error, 500);
         }
     }
     public update(entity: UserModel) {

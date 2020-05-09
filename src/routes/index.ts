@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import UsersRoutes from './UsersRoutes';
+import HandleFinallyError from '../middlewares/HandleFinallyError';
 
 class Routes {
     public routes: Router;
@@ -10,7 +11,7 @@ class Routes {
     }
 
     private create() : void {
-        this.routes.use('/users', UsersRoutes);
+        this.routes.use('/users', UsersRoutes, HandleFinallyError.handle);
     }
 
 }

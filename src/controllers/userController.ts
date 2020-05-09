@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import {createConnection, getRepository } from "typeorm";
 import UserService from '../services/user';
 
@@ -7,7 +7,7 @@ class UserController {
         res.end();
     }
 
-    public async createUser(req: Request, res: Response) {
+    public async createUser(req: Request, res: Response, next: NextFunction) {
         try {
             const user = await UserService.createNewUser(req.body);
             res.json({
@@ -15,11 +15,7 @@ class UserController {
                 data: user
             });
         } catch (err) {
-            res.status(err.status).json({
-                error: true,
-                message: err.message,
-                data: err.data
-            })
+            next(err);
         }
     }
 }
