@@ -3,7 +3,6 @@ import cors from 'cors';
 import "reflect-metadata";
 
 import Routes from './app/routes/';
-import HandleFinallyError from './app/middlewares/HandleFinallyError';
 
 class App {
     public express: express.Application;
@@ -13,7 +12,6 @@ class App {
         this.middlewares();
         this.database();
         this.routes();
-        this.express.use(HandleFinallyError.handle);
     }
 
     private middlewares(): void {

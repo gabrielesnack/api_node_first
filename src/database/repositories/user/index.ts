@@ -1,7 +1,7 @@
 import IUserRepository from '../../../app/interfaces/repositories/UserRepositoryInterface';
-import CustomError from '../../../app/exceptions/CustomError';
 import { User } from '../../models/User';
 import { Connection, createConnection, getRepository } from 'typeorm';
+import DatabaseError from '../../../app/exceptions/database/DatabaseError';
 
 class UserRepository implements IUserRepository {
     public find(params: any) {
@@ -17,7 +17,7 @@ class UserRepository implements IUserRepository {
             connection.close();
             return user;
         } catch (error) {
-            throw new CustomError('Erro no banco de dados', error, 500);
+            throw new DatabaseError('Erro no banco de dados', error, 500);
         }
     }
     public update(entity: User) {

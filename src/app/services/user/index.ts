@@ -1,6 +1,7 @@
 import { User } from '../../../database/models/User';
 import UserRepository from '../../../database/repositories/user';
 import {validate} from "class-validator";
+import { CustomError } from '../../exceptions';
 
 class UserService  {
     constructor() {
@@ -15,7 +16,7 @@ class UserService  {
             let error = verifyUser.map(e => {
                 return { field: e.property, message: e.constraints}
             })
-            throw {message: 'Dados Invalidos', data: error, status: 400};
+            throw new CustomError('Dados Invalidos', error, 400);
         }
 
         return await UserRepository.create(newUser);
