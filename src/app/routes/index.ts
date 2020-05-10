@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import UsersRoutes from './UsersRoutes';
-import HandleFinallyError from '../middlewares/HandleFinallyError';
+import { HandleFinallyError } from '../middlewares/';
 
 class Routes {
     public routes: Router;

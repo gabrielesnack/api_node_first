@@ -1,5 +1,5 @@
-import { User } from '../../entity/User';
-import UserRepository from '../../repositories/user';
+import { User } from '../../../database/models/User';
+import UserRepository from '../../../database/repositories/user';
 import {validate} from "class-validator";
 
 class UserService  {

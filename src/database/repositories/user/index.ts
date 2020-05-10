@@ -1,6 +1,6 @@
-import IUserRepository from '../../interfaces/repositories/UserRepositoryInterface';
-import CustomError from '../../exceptions/CustomError';
-import { User as UserModel } from '../../entity/User';
+import IUserRepository from '../../../app/interfaces/repositories/UserRepositoryInterface';
+import CustomError from '../../../app/exceptions/CustomError';
+import { User } from '../../models/User';
 import { Connection, createConnection, getRepository } from 'typeorm';
 
 class UserRepository implements IUserRepository {
@@ -10,20 +10,20 @@ class UserRepository implements IUserRepository {
     public get(id: number) {
         throw new Error("Method not implemented.");
     }
-    public async create(entity: UserModel) {
+    public async create(entity: User) {
         try {
             const connection = await createConnection();
-            const user = await getRepository(UserModel, 'default').save(entity);
+            const user = await getRepository(User, 'default').save(entity);
             connection.close();
             return user;
         } catch (error) {
             throw new CustomError('Erro no banco de dados', error, 500);
         }
     }
-    public update(entity: UserModel) {
+    public update(entity: User) {
         throw new Error("Method not implemented.");
     }
-    public delete(entity: UserModel) {
+    public delete(entity: User) {
         throw new Error("Method not implemented.");
     }
     
