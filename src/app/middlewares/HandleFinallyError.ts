@@ -9,13 +9,18 @@ class HandleFinallyError implements IMiddleware {
             return res.status(error.httpStatusCode).json({
                 error: true,
                 type: error.name,
-                message: error.resume,
+                message: error.message,
                 data: error.data
             })
         }
 
         if(error instanceof DatabaseError) {
-            return res.send('DatabaseError')
+            return res.status(error.httpStatusCode).json({
+                error: true,
+                type: error.name,
+                message: error.message,
+                data: error.data
+            })
         }
 
         return res.status(500).json({

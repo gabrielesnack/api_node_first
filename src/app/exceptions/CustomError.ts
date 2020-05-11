@@ -1,10 +1,9 @@
 class CustomError extends Error {
-    public resume: string;
     public data: any;
     public httpStatusCode: number;
     public date: Date;
 
-    constructor(resume: string, data: any, httpStatusCode = 500, ...params: any) {
+    constructor(message: string, error: any, httpStatusCode = 500, ...params: any) {
         super(...params)
 
         if (Error.captureStackTrace) {
@@ -12,8 +11,8 @@ class CustomError extends Error {
         }
 
         this.name = 'CustomError'
-        this.resume = resume;
-        this.data = data;
+        this.message = message;
+        this.data = error;
         this.httpStatusCode = httpStatusCode;
         this.date = new Date()
     }

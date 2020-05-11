@@ -1,10 +1,9 @@
 class DatabaseError extends Error {
-    public resume: string;
     public data: any;
     public httpStatusCode: number;
     public date: Date;
 
-    constructor(resume: string, data: any, httpStatusCode = 500, ...params: any) {
+    constructor(message: string, error: any, httpStatusCode = 500, ...params: any) {
         super(...params)
 
         if (Error.captureStackTrace) {
@@ -12,8 +11,8 @@ class DatabaseError extends Error {
         }
 
         this.name = 'DatabaseError'
-        this.resume = resume;
-        this.data = data;
+        this.data = error;
+        this.message = message;
         this.httpStatusCode = httpStatusCode;
         this.date = new Date()
     }
