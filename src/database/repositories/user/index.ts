@@ -1,6 +1,6 @@
 import IUserRepository from '../../../app/interfaces/repositories/UserRepositoryInterface';
 import { User } from '../../models/User';
-import { Connection, createConnection, getRepository } from 'typeorm';
+import { getRepository } from 'typeorm';
 import DatabaseError from '../../../app/exceptions/database/DatabaseError';
 
 class UserRepository implements IUserRepository {
@@ -12,9 +12,7 @@ class UserRepository implements IUserRepository {
     }
     public async create(entity: User) {
         try {
-            const connection = await createConnection();
-            const user = await getRepository(User, 'default').save(entity);
-            connection.close();
+            const user = await getRepository(User).save(entity);
             return user;
         } catch (error) {
             throw new DatabaseError('Erro no banco de dados', error, 500);

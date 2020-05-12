@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import "reflect-metadata";
+import {createConnection} from 'typeorm'
 
 import Routes from './app/routes/';
+import {consoleColors} from './utils/colors';
 
 class App {
     public express: express.Application;
@@ -20,7 +22,9 @@ class App {
     }
 
     private database(): void {
-
+        createConnection().catch(err => {
+            console.error(consoleColors.fg.Red,'Connection with database has failed', consoleColors.Reset)
+        });
     }
 
     private routes(): void {
