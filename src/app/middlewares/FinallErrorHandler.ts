@@ -1,8 +1,8 @@
 import { IMiddleware } from '../interfaces/middlewares';
 import { Request, Response, NextFunction } from "express";
-import {CustomError, DatabaseError } from '../exceptions/';
+import {CustomError, DatabaseError } from '../exceptions';
 
-class HandleFinallyError implements IMiddleware {
+class FinallErrorHandler implements IMiddleware {
     handle(error: any, req: Request, res: Response, next: NextFunction) : any {
 
         if(error instanceof CustomError) {
@@ -31,4 +31,4 @@ class HandleFinallyError implements IMiddleware {
     }
 }
 
-export default new HandleFinallyError;
+export default new FinallErrorHandler;

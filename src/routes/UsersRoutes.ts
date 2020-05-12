@@ -1,5 +1,5 @@
 import { BaseRoutes } from './BaseRoutes';
-import UserController from '../controllers/userController';
+import UserController from '../app/controllers/userController';
 
 class UserRoutes extends BaseRoutes {
     public constructor() {

@@ -3,7 +3,7 @@ import cors from 'cors';
 import "reflect-metadata";
 import {createConnection} from 'typeorm'
 
-import Routes from './app/routes/';
+import Routes from './routes';
 import {consoleColors} from './utils/colors';
 
 class App {
