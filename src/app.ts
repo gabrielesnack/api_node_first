@@ -1,13 +1,21 @@
 import express from 'express';
 import cors from 'cors';
-import "reflect-metadata";
-import {createConnection} from 'typeorm'
+import helmet from 'helmet';
+import session from 'express-session';
+import 'reflect-metadata';
+import { createConnection } from 'typeorm'
 
 import Routes from './routes';
-import {consoleColors} from './utils/colors';
+import { consoleColors } from './utils/colors';
 
 class App {
     public express: express.Application;
+    private configCookie = {
+        secret: 'key_of_cookies',
+        cookie: { maxAge: 60000 }, 
+        resave: false, 
+        saveUninitialized: false
+    } 
 
     public constructor() {
         this.express = express();
@@ -19,6 +27,8 @@ class App {
     private middlewares(): void {
         this.express.use(express.json());
         this.express.use(cors());
+        this.express.use(helmet());
+        this.express.use(session(this.configCookie))
     }
 
     private database(): void {
