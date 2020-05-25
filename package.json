@@ -5,10 +5,11 @@
    "license": "MIT",
    "scripts": {
       "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
-      "build": "yarn tsc && node dist/server.js",
-      "start": "ts-node src/index.ts",
-      "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
-      "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
+      "build": "yarn tsc && NODE_ENV=production node dist/server.js",
+      "migration:run": "NODE_ENV=production ts-node ./node_modules/typeorm/cli.js migration:run",
+      "migration:run-dev": "NODE_ENV=development ts-node ./node_modules/typeorm/cli.js migration:run",
+      "migration:revert": "NODE_ENV=production ts-node ./node_modules/typeorm/cli.js migration:revert",
+      "migration:revert-dev": "NODE_ENV=development ts-node ./node_modules/typeorm/cli.js migration:revert"
    },
    "dependencies": {
       "class-validator": "^0.12.2",
