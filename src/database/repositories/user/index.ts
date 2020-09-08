@@ -1,7 +1,7 @@
-import IUserRepository from '../../../app/interfaces/repositories/UserRepositoryInterface';
-import { User } from '../../models/User';
+import IUserRepository from '@app/interfaces/repositories/UserRepositoryInterface';
+import { User } from '@database/models/User';
 import { getRepository } from 'typeorm';
-import DatabaseError from '../../../app/exceptions/database/DatabaseError';
+import DatabaseError from '@app/exceptions/database/DatabaseError';
 
 class UserRepository implements IUserRepository {
     public find(params: any) {

@@ -4,7 +4,7 @@
    "main": "index.js",
    "license": "MIT",
    "scripts": {
-      "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
+      "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpileOnly src/server.ts",
       "build": "yarn tsc && NODE_ENV=production node dist/server.js",
       "migration:run": "NODE_ENV=production ts-node ./node_modules/typeorm/cli.js migration:run",
       "migration:run-dev": "NODE_ENV=development ts-node ./node_modules/typeorm/cli.js migration:run",
@@ -17,6 +17,7 @@
       "express": "^4.17.1",
       "express-session": "^1.17.1",
       "helmet": "^3.22.0",
+      "jsonwebtoken": "^8.5.1",
       "mysql": "^2.14.1",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.24"
@@ -29,6 +30,7 @@
       "@types/node": "^8.0.29",
       "ts-node": "3.3.0",
       "ts-node-dev": "^1.0.0-pre.44",
+      "tsconfig-paths": "^3.9.0",
       "typescript": "3.3.3333"
    }
 }

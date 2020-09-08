@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import {createConnection, getRepository } from "typeorm";
-import UserService from '../services/user';
+import UserService from '@app/services/user';
 
 class UserController {
     public async getUser(req: Request, res: Response) {

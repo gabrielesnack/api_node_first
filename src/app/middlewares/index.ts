@@ -1,5 +1,5 @@
-import FinallErrorHandler from "./FinallErrorHandler";
+import FinalErrorHandler from "./FinalErrorHandler";
 
 export { 
-    FinallErrorHandler 
+    FinalErrorHandler 
 };

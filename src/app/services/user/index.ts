@@ -1,7 +1,7 @@
-import { User } from '../../../database/models/User';
-import UserRepository from '../../../database/repositories/user';
+import { User } from '@database/models/User';
+import UserRepository from '@database/repositories/user';
 import {validate} from "class-validator";
-import { CustomError } from '../../exceptions';
+import { CustomError } from '@app/exceptions';
 
 class UserService  {
     constructor() {
