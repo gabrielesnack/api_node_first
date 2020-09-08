@@ -1,4 +1,4 @@
-import IUserRepository from '@app/interfaces/repositories/UserRepositoryInterface';
+import IUserRepository from '@app/interfaces/repositories/User';
 import { User } from '@database/models/User';
 import { getRepository } from 'typeorm';
 import DatabaseError from '@app/exceptions/database/DatabaseError';

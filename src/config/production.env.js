@@ -1,4 +1,5 @@
 module.exports = {
+    AUTH_SECRET: 'pass@2323',
     COOKIE_SECRET: 'MYSECRETCOOKIEKEY',
     DB_TYPE: "mysql",
     DB_HOST: "localhost",
