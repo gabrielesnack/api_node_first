@@ -12,7 +12,7 @@
       "migration:revert-dev": "NODE_ENV=development ts-node ./node_modules/typeorm/cli.js migration:revert"
    },
    "dependencies": {
-      "class-validator": "^0.12.2",
+      "class-validator": "^0.14.0",
       "cors": "^2.8.5",
       "express": "^4.17.1",
       "express-session": "^1.17.1",
